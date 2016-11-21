@@ -1,0 +1,295 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  
+  <title>binaryTree | wiliam`s blog</title>
+  <meta name="author" content="william hunter">
+  
+  <meta name="description" content="树状图是一种数据结构，它是由n（n&amp;gt;=1）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="binaryTree"/>
+  <meta property="og:site_name" content="wiliam`s blog"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  
+  
+    <link href="/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/responsive.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/css/google-fonts.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-70812759-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?cb5448498d7169c668b07c2b255d62c1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+</head>
+
+ <body>  
+  <nav id="main-nav" class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <button type="button" class="navbar-header navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		<span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	  <a class="navbar-brand" href="/">wiliam`s blog</a>
+      <div class="collapse navbar-collapse nav-menu">
+		<ul class="nav navbar-nav">
+		  
+		  <li>
+			<a href="/archives" title="All the articles.">
+			  <i class=""></i>Archives
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/categories" title="All the categories.">
+			  <i class=""></i>Categories
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/tags" title="All the tags.">
+			  <i class=""></i>Tags
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/about" title="About me.">
+			  <i class=""></i>About
+			</a>
+		  </li>
+		  
+		  <li>
+			<a href="/atom.xml" title="Subscribe me.">
+			  <i class=""></i>RSS
+			</a>
+		  </li>
+		  
+		</ul>
+      </div>
+    </div> <!-- container -->
+</nav>
+<div class="clearfix"></div>
+
+  <div class="container">
+  	<div class="content">
+    	 
+
+
+	
+		<div class="page-header">
+			<h1> binaryTree</h1>
+		</div>
+	
+
+
+
+<div class="row post">
+	<!-- cols -->
+	
+	<div id="top_meta"></div>
+	<div class="col-md-9">
+	
+
+	<!-- content -->
+	<div class="mypage">		
+	  		
+
+	  <p>树状图是一种数据结构，它是由n（n&gt;=1）个有限节点组成一个具有层次关系的集合。把它叫做“树”是因为它看起来像一棵倒挂的树，也就是说它是根朝上，而叶朝下的。<br><a id="more"></a><br><strong>它具有以下的特点：</strong><br>每个节点有零个或多个子节点；<br>没有父节点的节点称为根节点；<br>每一个非根节点有且只有一个父节点；<br>除了根节点外，每个子节点可以分为多个不相交的子树；<br><img src="1.jpg" alt=""><br>树在很多地方都可以应用和使用，比如对于磁盘文件的遍历，因为文件夹的存储形式的如同金字塔形状，<br><img src="2.jpg" alt=""><br>首先是用结构体数组的模式<br><img src="3.jpg" alt=""><br>然后就是用链表去实现：<br>怎么用链表去实现一个二叉树？<br>我想最终的存储形式应该是这样：<br><img src="4.jpg" alt=""><br>那么节点的数据类型就应该是这样</p>
+<pre><code>struct  Node
+{
+    data;
+    left;
+    right;
+    parenty;
+}；
+</code></pre><p>运行的时候，输入5 3 2 1 0 0 0 4 0 0 8 6 0 7 0 0 9 0 0<br>那么这个树应该是这样的</p>
+<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><p>：对于一个二叉树来说，它只有左孩子和右孩子两个方向，节点值为0就代表没有孩子节点，所以用户输入数组里面，最前面的一个数就是根节点的数值，为5,5后面的3代表它的左孩子数值为3，所以我们把注意力里先放在3身上，3后面的数字为2，代表3的左孩子为2，2后面的数值为1，代表3的左孩子为1,1的后面为0（第一个0），代表1没有左节点，1后面的第二个0（第二个0）代表1的右孩子也为0，所以1节点的孩子节点都可以完全确定了，那么返回上一层，2后面第4个0（第三个0），2的右节点为0.。。。。。。。。。。。。。<br><strong>总之一句话：</strong><br>从开头向后读，A为非0数字，成为当前节点A，A后一位A+1为非0数，说明A+1为A的左孩子，遇第一个0则作为A的左孩子，0其后的数字为A的右孩子，当一个节点的左右都有孩子之后，返回父节点。<br><img src="5.jpg" alt=""><br><strong>创建二叉树的伪代码</strong><br><em>flag：用来判断当前节点的与父节点的左指针或者右指针，1代表左，2代表右，</em><br><em>before：指向当前节点的父节点的指针。</em><br><em>word[]：存储用户输入的字符串。</em><br><em>i：字符串的下标序号。</em><br><em>length：字符串的有效长度。</em></p>
+<pre><code>creat（i=0，before=-1，word[]，flag=0，）
+{
+    建立一个node类型的p指针，
+    建立一个node类型空间，地址放在p里面，
+    把word[i]数值放在p指向的空间里面，
+    如果flag==1的话：当前节点的地址给父节点的左指针，before.left=p。
+    如果flag==2的话：当前节点的地址给父节点的右指针，before.right=p。
+    当前节点的parenty指向父节点，p。parenty=before。
+    指向之前节点的指针指向现在的节点，before=p。
+    如果i+1不小于word字符串的有效长度，i+1&gt;=length。
+    预览一下word[i]后一位的数值，如果为0的话：当前节点的左指针为0, 否则i自增一次，进入create函数。if   word[i+1]==‘0’，p.left=0，else  i++，create（word,i+1,length,before,1）
+    预览一下word[i]后两位的数值，如果为0的话：当前节点的右指针为0, 否则i自增两次，进入create函数。if   word[i+2]==‘0’，p.right=0，else  i+=2，create（word,i+2,length,before,2）
+    i自增一次，i++；
+    返回p的地址值，
+}
+</code></pre><p><strong>遍历二叉树的伪代码</strong></p>
+<pre><code>watch（node *P）
+{
+     输出当前节点存储的数值，print data。
+     如果当前节点的左指针为0的话：就输出一个0，否则，就进入函数watch（p。left）        if(P-&gt;left==0)      cout&lt;&lt;&quot;0 &quot;;     else   watch(P-&gt;left);
+     如果当前节点的右指针为0的话：就输出一个0，否则，就进入函数watch（p。right）      if(P-&gt;right==0)    cout&lt;&lt;&quot;0 &quot;;     else   watch(P-&gt;right); 
+}
+</code></pre><p><strong>递归调用的形式</strong><br><img src="7.jpg" alt=""><br><strong>打印信息</strong><br><img src="8.jpg" alt=""> </p>
+	  
+	</div>
+
+	<div>
+  	<center>
+	<div class="pagination">
+
+    
+    
+    <a href="/2015/11/05/SunEclipse/" type="button" class="btn btn-default"><i
+                class="fa fa-arrow-circle-o-left"></i> Prev</a>
+    
+
+    <a href="/" type="button" class="btn btn-default"><i class="fa fa-home"></i>Home</a>
+    
+    <a href="/2015/11/05/What-I-Wish-I-Knew-When-I-Became-a-Software-Engineer/" type="button" class="btn btn-default ">Next<i
+                class="fa fa-arrow-circle-o-right"></i></a>
+    
+
+    
+</div>
+
+    </center>
+	</div>
+	
+	<!-- comment -->
+	
+<section id="comment">
+    <h2 class="title">Comments</h2>
+
+    
+</section>
+
+
+	</div> <!-- col-md-9/col-md-12 -->
+		
+	
+	<div id="side_meta">
+		<div class="col-md-3" id="post_meta"> 
+
+	<!-- date -->
+	
+	<div class="meta-widget">
+	<i class="fa fa-clock-o"></i>
+	2015-11-05 
+	</div>
+	
+
+	<!-- categories -->
+    
+
+	<!-- tags -->
+	
+	<div class="meta-widget">
+	<a data-toggle="collapse" data-target="#tags"><i class="fa fa-tags"></i></a>		  
+    <ul id="tags" class="tag_box list-unstyled collapse in">	  
+	    
+  <li><a href="/tags/DataStruct/">DataStruct<span>1</span></a></li>
+    </ul>
+	</div>
+		
+
+	<!-- toc -->
+	<div class="meta-widget">
+	
+	</div>
+	
+    <hr>
+	
+</div><!-- col-md-3 -->
+
+	</div>
+		
+
+</div><!-- row -->
+
+
+
+	</div>
+  </div>
+  <div class="container-narrow">
+  <footer> <p>
+  &copy; 2016 william hunter
+  
+      with help from <a href="http://hexo.io/" target="_blank">Hexo</a>,<a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind</a>,<a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a> and <a href="http://getbootstrap.com/" target="_blank">BOOTSTRA.386</a>. 
+     <br> Theme by <a href="http://github.com/wzpan/hexo-theme-freemind/">Freemind.386</a>.    
+</p>
+ </footer>
+</div> <!-- container-narrow -->
+  
+
+
+  
+<a id="gotop" href="#">   
+  <span>⬆︎TOP</span>
+</a>
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/search.js"></script> 
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+</body>
+   </html>
